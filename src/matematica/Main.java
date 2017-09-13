@@ -1,6 +1,6 @@
 package matematica;
 
-public class main {
+public class Main {
 
 	public static void main(String[] args) {
 		Polinomio p = new Polinomio(2, new double[] { 1, 1, 1 });

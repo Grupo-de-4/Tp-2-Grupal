@@ -1,6 +1,7 @@
 Complejidad Computacional:
-
+Evaluaciones:
 MSucesivas: O(n^2)
-Potencia: O(n)
-PotenciaPar: O()
-PotenciaDinamica: O()
+Potencia: O(n^2)
+PotenciaPar: O(n^2)
+PotenciaDinamica: O(n)
+Horner: O(n)

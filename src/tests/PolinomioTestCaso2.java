@@ -42,5 +42,11 @@ public class PolinomioTestCaso2 {
 	public void testEvaluarHorner() {
 		assertEquals("Evaluar evaluarHorner", p.evaluarHorner(x), resultado, delta);
 	}
+	
+	@Test
+	public void testEvaluarMejorada() {
+		assertEquals("Evaluar evaluarMejorada", p.evaluarMejorada(x), resultado, delta);
+	}
+
 
 }

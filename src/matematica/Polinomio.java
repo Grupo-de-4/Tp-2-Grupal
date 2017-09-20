@@ -49,9 +49,8 @@ public class Polinomio {
 
 	public double evaluarRecursivaPar(double x) {
 		double res = 0;
-		// if(grado%2==0)
 		for (int i = this.grado; i >= 0; i--)
-			res += coeficientes[i] * (i % 2 == 0 ? potenciaPar(x, i) : potencia(x, i));
+			res += coeficientes[i] * potenciaPar(x, i);
 
 		return res;
 	}
@@ -66,16 +65,16 @@ public class Polinomio {
 
 	public double evaluarMejorada(double x) {
 		double res = 0;
-		double potAnt=1;
+		double potAnt = 1;
 		for (int i = this.grado; i >= 0; i--)
-			//res += coeficientes[i] * potenciaDinamicaMejorada(x, i, potAnt);
-			res += coeficientes[i] * (potAnt*=x);
+			// res += coeficientes[i] * potenciaDinamicaMejorada(x, i, potAnt);
+			res += coeficientes[i] * (potAnt *= x);
 		return res;
 	}
 
 	public double potenciaDinamicaMejorada(double x, double potAnt) {
 
-			return potAnt*x;
+		return potAnt * x;
 
 		/*
 		 * for(int i=1; i<=n; i++) { if(vPot[i]==0) vPot[i] = vPot[i-1] * x; }
@@ -118,9 +117,12 @@ public class Polinomio {
 	public double potenciaPar(double x, int n) {
 		if (n == 0)
 			return 1;
-		if (n == 1)
-			return x;
-		return potenciaPar(x * x, n / 2);
+
+		if (n % 2 == 0)
+			return potenciaPar(x * x, n / 2);
+		else
+			return x * potenciaPar(x, n - 1);
+
 	}
 
 	public double potenciaDinamica(double x, int n, double[] vPot) {

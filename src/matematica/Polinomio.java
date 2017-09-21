@@ -34,7 +34,7 @@ public class Polinomio {
 	public double evaluarMSucesivas(double x) {
 		double res = 0;
 		for (int i = this.grado; i >= 0; i--)
-			res += coeficientes[i] * potenciaMSucesivas(x, i);
+			res += coeficientes[this.grado - i] * potenciaMSucesivas(x, i);
 
 		return res;
 	}
@@ -42,7 +42,7 @@ public class Polinomio {
 	public double evaluarRecursiva(double x) {
 		double res = 0;
 		for (int i = this.grado; i >= 0; i--)
-			res += coeficientes[i] * potencia(x, i);
+			res += coeficientes[this.grado - i] * potencia(x, i);
 
 		return res;
 	}
@@ -50,7 +50,7 @@ public class Polinomio {
 	public double evaluarRecursivaPar(double x) {
 		double res = 0;
 		for (int i = this.grado; i >= 0; i--)
-			res += coeficientes[i] * potenciaPar(x, i);
+			res += coeficientes[this.grado - i] * potenciaPar(x, i);
 
 		return res;
 	}
@@ -59,7 +59,7 @@ public class Polinomio {
 		double res = 0;
 		double[] vPot = new double[grado + 1];
 		for (int i = this.grado; i >= 0; i--)
-			res += coeficientes[i] * potenciaDinamica(x, i, vPot);
+			res += coeficientes[this.grado - i] * potenciaDinamica(x, i, vPot);
 		return res;
 	}
 
@@ -67,8 +67,10 @@ public class Polinomio {
 		double res = 0;
 		double potAnt = 1;
 		for (int i = this.grado; i >= 0; i--)
-			// res += coeficientes[i] * potenciaDinamicaMejorada(x, i, potAnt);
-			res += coeficientes[i] * (potAnt *= x);
+		{
+			res += coeficientes[i] * potAnt;
+			potAnt *= x;
+		}
 		return res;
 	}
 
@@ -87,7 +89,7 @@ public class Polinomio {
 		double res = 0;
 		if (grado % 2 == 0)
 			for (int i = this.grado; i >= 0; i--)
-				res += coeficientes[i] * Math.pow(x, i);
+				res += coeficientes[this.grado - i] * Math.pow(x, i);
 
 		return res;
 	}

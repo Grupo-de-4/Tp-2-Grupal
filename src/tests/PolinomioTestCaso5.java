@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import polinomio.Polinomio;
+import matematica.Polinomio;
 
 public class PolinomioTestCaso5 {
 	

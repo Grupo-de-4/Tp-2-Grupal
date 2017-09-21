@@ -87,7 +87,6 @@ public class Polinomio {
 
 	public double evaluarPow(double x) {
 		double res = 0;
-		if (grado % 2 == 0)
 			for (int i = this.grado; i >= 0; i--)
 				res += coeficientes[this.grado - i] * Math.pow(x, i);
 

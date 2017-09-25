@@ -136,13 +136,15 @@ public class Polinomio {
 		return x * vPot[n];
 	}
 
-	@Override
+    @Override
 	public String toString() {
 		StringBuilder res = new StringBuilder();
-		res.append(this.coeficientes[this.grado] + "x^" + this.grado);
+		
 		for (int i = this.grado; i > 0; i--)
-			res.append(" + " + this.coeficientes[i] + "x^" + i);
-
+			res.append( this.coeficientes[i] + "x^" + i + "  +  ");
+		
+		res.append(this.coeficientes[0]);
+		
 		return res.toString();
-	}
+    }
 }
